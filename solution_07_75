@@ -12,8 +12,5 @@ class Solution:
         nums[two] = 2
         nums[one] = 1
         nums[zero] = 0
-      elif num == 1:
-        two += 1
-        one += 1
-        nums[two] = 2
+   
 
