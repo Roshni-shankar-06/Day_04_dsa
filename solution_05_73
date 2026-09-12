@@ -18,9 +18,7 @@ class Solution:
         if matrix[i][0] == 0 or matrix[0][j] == 0:
           matrix[i][j] = 0
 
-    # Fill 0s for the first row if needed.
-    if shouldFillFirstRow:
-      matrix[0] = [0] * n
+
 
  
 
