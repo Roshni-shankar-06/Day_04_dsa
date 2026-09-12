@@ -1,6 +1,5 @@
 class Solution {
  public:
-  bool isUnivalTree(TreeNode* root) {
-    if (root == nullptr)
+
     
    
