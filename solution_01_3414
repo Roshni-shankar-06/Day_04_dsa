@@ -34,14 +34,7 @@ class Solution:
     def dp(i: int, quota: int) -> State:
       # Base Case: No more intervals left to process or quota is filled
       if i == n or quota == 0:
-        return State(0, ())
-
-      # Choice 1: Skip the current interval
-      res = dp(i + 1, quota)
-
-      # Choice 2: Take the current interval
-      l, r, w, idx = A[i]
-
+   
 
 
     
