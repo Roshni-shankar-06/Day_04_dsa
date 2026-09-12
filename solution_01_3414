@@ -17,6 +17,54 @@ class State:
     return self.selected > other.selected
 
 
+class Solution:
+
+  def maximumWeight(self, intervals: list[list[int]]) -> list[int]:
+    # 1. Store intervals as (left, right, weight, original_index)
+    #    Sorting primarily by 'left' to process intervals chronologically.
+    A = sorted(
+        (l, r, w, i) for i, (l, r, w) in enumerate(intervals)
+    )
+    n = len(A)
+
+    # Extract just the start times to make binary searching faster
+    starts = [item[0] for item in A]
+
+    @functools.lru_cache(None)
+    def dp(i: int, quota: int) -> State:
+      # Base Case: No more intervals left to process or quota is filled
+      if i == n or quota == 0:
+        return State(0, ())
+
+      # Choice 1: Skip the current interval
+      res = dp(i + 1, quota)
+
+      # Choice 2: Take the current interval
+      l, r, w, idx = A[i]
+
+      # Find the first interval that starts strictly after the current interval ends
+      # Since intervals sharing a boundary overlap, we look for start > r (or start >= r + 1)
+      next_idx = bisect.bisect_left(starts, r + 1)
+
+      next_res = dp(next_idx, quota - 1)
+      take_weight = w + next_res.weight
+
+      # Lexicographically sort indices to satisfy tie-breaking constraints
+      take_selected = tuple(sorted((idx,) + next_res.selected))
+      take_state = State(take_weight, take_selected)
+
+      # Keep the better state (highest weight, lexicographically smallest indices)
+      if take_state > res:
+        res = take_state
+
+      return res
+
+    # The maximum allowed intervals to select is 4
+    final_state = dp(0, 4)
+    return list(final_state.selected)
+
+
+
    
 
 
