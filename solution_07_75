@@ -1,8 +1,4 @@
-class Solution:
-  def sortColors(self, nums: list[int]) -> None:
-    zero = -1
-    one = -1
-    two = -1
+
 
       
    
