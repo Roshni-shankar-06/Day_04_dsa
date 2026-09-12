@@ -42,16 +42,7 @@ class Solution:
       # Choice 2: Take the current interval
       l, r, w, idx = A[i]
 
-      # Find the first interval that starts strictly after the current interval ends
-      # Since intervals sharing a boundary overlap, we look for start > r (or start >= r + 1)
-      next_idx = bisect.bisect_left(starts, r + 1)
 
-      next_res = dp(next_idx, quota - 1)
-      take_weight = w + next_res.weight
-
-      # Lexicographically sort indices to satisfy tie-breaking constraints
-      take_selected = tuple(sorted((idx,) + next_res.selected))
-      take_state = State(take_weight, take_selected)
 
     
 
