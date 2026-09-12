@@ -5,9 +5,6 @@ class Solution:
     shouldFillFirstRow = 0 in matrix[0]
     shouldFillFirstCol = 0 in list(zip(*matrix))[0]
 
-    # Store the information in the first row and the first column.
-    for i in range(1, m):
-      for j in range(1, n):
       
    
 
