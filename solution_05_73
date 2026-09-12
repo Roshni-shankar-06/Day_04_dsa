@@ -22,8 +22,5 @@ class Solution:
     if shouldFillFirstRow:
       matrix[0] = [0] * n
 
-    # Fill 0s for the first column if needed.
-    if shouldFillFirstCol:
-      for row in matrix:
-        row[0] = 0
+ 
 
