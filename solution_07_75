@@ -16,7 +16,4 @@ class Solution:
         two += 1
         one += 1
         nums[two] = 2
-        nums[one] = 1
-      else:
-        two += 1
-        nums[two] = 2
+
