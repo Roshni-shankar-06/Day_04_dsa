@@ -17,23 +17,6 @@ class State:
     return self.selected > other.selected
 
 
-class Solution:
-
-  def maximumWeight(self, intervals: list[list[int]]) -> list[int]:
-    # 1. Store intervals as (left, right, weight, original_index)
-    #    Sorting primarily by 'left' to process intervals chronologically.
-    A = sorted(
-        (l, r, w, i) for i, (l, r, w) in enumerate(intervals)
-    )
-    n = len(A)
-
-    # Extract just the start times to make binary searching faster
-    starts = [item[0] for item in A]
-
-    @functools.lru_cache(None)
-    def dp(i: int, quota: int) -> State:
-      # Base Case: No more intervals left to process or quota is filled
-      if i == n or quota == 0:
    
 
 
