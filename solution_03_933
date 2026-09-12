@@ -8,5 +8,3 @@ class RecentCounter {
   }
 
  private:
-  queue<int> q;
-};
