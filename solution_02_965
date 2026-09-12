@@ -2,7 +2,5 @@ class Solution {
  public:
   bool isUnivalTree(TreeNode* root) {
     if (root == nullptr)
-      return true;
-    if (root->left != nullptr && root->left->val != root->val)
-      return false;
+    
    
