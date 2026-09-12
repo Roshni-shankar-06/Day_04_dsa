@@ -53,13 +53,5 @@ class Solution:
       take_selected = tuple(sorted((idx,) + next_res.selected))
       take_state = State(take_weight, take_selected)
 
-      # Keep the better state (highest weight, lexicographically smallest indices)
-      if take_state > res:
-        res = take_state
-
-      return res
-
-    # The maximum allowed intervals to select is 4
-    final_state = dp(0, 4)
-    return list(final_state.selected)
+    
 
